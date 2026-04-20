@@ -57,22 +57,80 @@ onMounted(() => {
 
                 if (i === totalCycles - 1) {
                     imgEl.src = "/images/mask-1.jpg";
-                    gsap.to(".preloader__image", { scale: 1.45 });
+                    gsap.to(".preloader__image", { scale: 1.5 });
 
-                    // const images = gsap.utils.toArray(".preloader__image");
+                    const images = gsap.utils.toArray(".preloader__image");
 
-                    // images.forEach((img, i) => {
-                    //     gsap.to(img, {
-                    //         yPercent: -(80 - 4 * i),
-                    //         scale: 1.5 - i * 0.2,
-                    //         duration: 1,
-                    //         ease: "power3.inOut",
-                    //         delay: i * 0.04
-                    //     })
-                    // })
+                    images.forEach((img, i) => {
+                        gsap.to(img, {
+                            y: -(150 - 20 * i),
+                            scale: 1.5 - i * 0.2,
+                            duration: 1,
+                            ease: "power3.inOut",
+                            // delay: i * 0.04
+                        });
+                    });
 
                     preloaderEndTimeline
-                        .add("start", 0);
+                        .add("start", 0)
+                        .to(
+                            ".preloader__text-lines .line",
+                            {
+                                yPercent: -100,
+                                stagger: 0.06,
+                                duration: 0.5,
+                                ease: "power1.inOut",
+                            },
+                            "start+=.7",
+                        )
+                        .call(() => {
+                            const gap = 4;
+
+                            images.reverse().forEach((img, i) => {
+                                const targetY = i * (img?.offsetHeight + gap);
+                                gsap.to(img, {
+                                    top: targetY,
+                                    scale: 0.75,
+                                    duration: 0.5,
+                                    ease: "power1.inOut",
+                                    delay: i * 0.05,
+                                });
+                            });
+                        }, [], "-=0.5")
+                        .to(
+                            ".preloader__text-1 .word",
+                            {
+                                yPercent: -100,
+                                duration: 0.5,
+                                // ease: "power1.inOut",
+                                stagger: 0.04,
+                            },
+                            "+=0.2",
+                        )
+                        .to(
+                            ".preloader__text-2 .word",
+                            {
+                                yPercent: -100,
+                                duration: 0.5,
+                                // ease: "power1.inOut",
+                                stagger: 0.04,
+                            },
+                            "<",
+                        )
+                        .call(
+                            () => {
+                                images.reverse().forEach((img, i) => {
+                                    gsap.to(img, {
+                                        opacity: 0,
+                                        duration: 0.5,
+                                        ease: "power1.inOut",
+                                        delay: i * 0.05,
+                                    });
+                                });
+                            },
+                            [],
+                            "<",
+                        );
                 }
                 else {
                     imgEl.src = nextImage;
@@ -159,7 +217,7 @@ onMounted(() => {
         </div>
 
         <div class="absolute h-full w-full p-[1rem]">
-            <div class="relative h-full w-full perspective-distant">
+            <div class="relative isolated h-full w-full perspective-distant">
                 <div ref="preloaderImageEl" class="preloader__image absolute rounded-[.4rem] z-8 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
                     <img
                         src="/images/mask-1.jpg"

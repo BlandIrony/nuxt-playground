@@ -79,3 +79,7 @@ body {
     color: var(--color-col-black);
     font-family: var(--font-google-r);
 }
+
+button {
+    cursor: pointer;
+}
