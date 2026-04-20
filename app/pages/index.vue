@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="h-[120vh]">
-        This is the homepage!
+    <div class="">
+        <!-- This is a fresh start! -->
     </div>
 </template>
 

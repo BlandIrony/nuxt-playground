@@ -45,7 +45,8 @@ onMounted(() => {
 
 <template>
     <div class="app preloading">
-        <Header />
+        <!-- <Header /> -->
+        <Loader />
         <NuxtPage />
     </div>
 </template>
