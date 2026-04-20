@@ -1,11 +1,9 @@
 <script setup lang="ts">
-
+// import { links } from '../lib/data';
 </script>
 
 <template>
-    <div class="">
-        <!-- This is a fresh start! -->
-    </div>
+    <section class="w-full" />
 </template>
 
 <style scoped>

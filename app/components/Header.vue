@@ -3,17 +3,20 @@
 </script>
 
 <template>
-    <nav class="fixed top-0 left-0 w-full p-[1rem]">
+    <nav
+        class="header fixed top-0 left-0 z-15 w-full p-[1rem]"
+        style="mix-blend-mode: difference;"
+    >
         <div class="flex justify-between items-center">
             <NuxtLink
                 to="/"
-                class="inline-block font-semibold text-[2.5rem]"
+                class="inline-block  text-[2rem] text-col-white"
             >
-                clasp;
+                ©2026 Playground
             </NuxtLink>
 
             <button
-                class="text-[1.5rem] tracking-tight uppercase font-semibold"
+                class="text-[1.5rem] tracking-tight uppercase font-semibold text-col-white"
             >
                 Menu+
             </button>

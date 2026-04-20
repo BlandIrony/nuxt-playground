@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { onMounted, ref } from "vue";
 
+const { onLoaded } = defineProps<{ onLoaded: () => void }>();
 const preloaderImageEl = ref<HTMLDivElement | null>(null);
 
 onMounted(() => {
@@ -130,7 +131,27 @@ onMounted(() => {
                             },
                             [],
                             "<",
-                        );
+                        )
+                        .to(
+                            ".preloader",
+                            {
+                                autoAlpha: 0,
+                            },
+                            "<",
+                        )
+                        .fromTo(
+                            ".header",
+                            {
+                                yPercent: -100,
+                            },
+                            {
+                                yPercent: 0,
+                                duration: 1,
+                                ease: "power3.out",
+                            },
+                            "<+=0.1",
+                        )
+                        .call(() => { onLoaded(); });
                 }
                 else {
                     imgEl.src = nextImage;
@@ -198,11 +219,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="fixed isolate top-0 left-0 h-screen w-full overflow-hidden">
+    <div class="preloader fixed isolate top-0 left-0 z-20 h-screen w-full bg-col-white overflow-hidden">
         <div class="absolute bottom-5 left-0 z-2 h-1/2 w-full p-[1rem] flex flex-col justify-between">
             <div class="flex justify-between">
                 <p class="preloader__text preloader__text-1 text-[1.5rem] uppercase overflow-hidden">
-                    Inimicable dance
+                    The inimicable dance
                 </p>
                 <p class="preloader__text preloader__text-2 text-[1.5rem] uppercase overflow-hidden">
                     of forest trees
@@ -218,56 +239,56 @@ onMounted(() => {
 
         <div class="absolute h-full w-full p-[1rem]">
             <div class="relative isolated h-full w-full perspective-distant">
-                <div ref="preloaderImageEl" class="preloader__image absolute rounded-[.4rem] z-8 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div ref="preloaderImageEl" class="preloader__image absolute rounded-[.4rem] z-8 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] transform-3d">
                     <img
                         src="/images/mask-1.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-7 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-7 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-2.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-6 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-6 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-3.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-5 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-5 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-4.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-4 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-4 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-5.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-3 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-3 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-6.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-2 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-2 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-7.jpg"
                         alt=""
                         class="h-full w-full object-cover rounded-[inherit]"
                     >
                 </div>
-                <div class="preloader__image absolute rounded-[.4rem] z-1 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem] bg-amber-300 transform-3d">
+                <div class="preloader__image absolute rounded-[.4rem] z-1 top-1/2 left-1/2 -translate-1/2 h-[10rem] w-[10rem]  transform-3d">
                     <img
                         src="/images/mask-8.jpg"
                         alt=""
