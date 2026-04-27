@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <section class="w-full" />
+    <div class="w-full">
+        <HomeHero />
+    </div>
 </template>
 
 <style scoped>

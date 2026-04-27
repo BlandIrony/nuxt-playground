@@ -137,7 +137,7 @@ onMounted(() => {
                             {
                                 autoAlpha: 0,
                             },
-                            "<",
+                            "+=.25",
                         )
                         .fromTo(
                             ".header",
@@ -232,7 +232,7 @@ onMounted(() => {
             <div class="flex justify-center">
                 <p class="preloader__text-lines text-[1.25rem] leading-[1.45rem] text-center">
                     Only through our connection with the metaphysical <br>
-                    can we truely discover and understand freedom.
+                    can we truly discover and understand freedom.
                 </p>
             </div>
         </div>

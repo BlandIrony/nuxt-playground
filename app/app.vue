@@ -52,6 +52,6 @@ onMounted(() => {
     <div class="app preloading">
         <Header />
         <Loader v-if="isLoading" :on-loaded="onLoaded" />
-        <NuxtPage v-else />
+        <NuxtPage />
     </div>
 </template>

@@ -10,16 +10,23 @@
         <div class="flex justify-between items-center">
             <NuxtLink
                 to="/"
-                class="inline-block  text-[2rem] text-col-white"
+                class="inline-block  text-[1.75rem] text-col-white"
             >
                 ©2026 Playground
             </NuxtLink>
 
             <button
-                class="text-[1.5rem] tracking-tight uppercase font-semibold text-col-white"
+                class="text-[1.75rem] tracking-tight uppercase text-col-white"
             >
-                Menu+
+                (Menu+)
             </button>
+
+            <NuxtLink
+                to="/"
+                class="inline-block  text-[1.75rem] text-col-white"
+            >
+                BlandIrony
+            </NuxtLink>
         </div>
     </nav>
 </template>
