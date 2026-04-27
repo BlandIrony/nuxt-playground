@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
 import { useLenis } from "./composables/use-lenis";
+import { useLoaderStore } from "./store/useLoaderStore";
 
-const isLoading = ref(true);
+const store = useLoaderStore();
 
-function onLoaded() {
-    isLoading.value = false;
-}
+// function onLoaded() {
+//     store.isLoading = false;
+// }
 
 // const scrolling = ref(false);
 
@@ -51,7 +52,7 @@ onMounted(() => {
 <template>
     <div class="app preloading">
         <Header />
-        <Loader v-if="isLoading" :on-loaded="onLoaded" />
-        <NuxtPage />
+        <Loader v-if="store.isLoading" :on-loaded="store.isLoaded" />
+        <NuxtPage v-else />
     </div>
 </template>

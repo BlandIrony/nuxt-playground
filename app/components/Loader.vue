@@ -151,7 +151,7 @@ onMounted(() => {
                             },
                             "<+=0.1",
                         )
-                        .call(() => { onLoaded(); });
+                        .call(() => { onLoaded(); }, [], "<-=.15");
                 }
                 else {
                     imgEl.src = nextImage;
