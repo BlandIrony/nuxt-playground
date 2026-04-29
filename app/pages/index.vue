@@ -5,6 +5,8 @@
 <template>
     <div class="w-full">
         <HomeHero />
+        <HomeAbout />
+        <HomeReveal />
     </div>
 </template>
 

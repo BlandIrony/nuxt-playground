@@ -32,8 +32,22 @@ html {
 }
 
 @font-face {
+    font-family: "Google Sans Medium";
+    src: url("/fonts/GoogleSansFlex_24pt-Medium.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Google Sans Bold";
     src: url("/fonts/GoogleSansFlex_24pt-Bold.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Google Sans Black";
+    src: url("/fonts/GoogleSansFlex_24pt-Black.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
 }
@@ -51,6 +65,8 @@ html {
     --font-gloock: "Gloock", sans-serif;
     --font-google-r: "Google Sans Regular", sans-serif;
     --font-google-b: "Google Sans Bold", sans-serif;
+    --font-google-m: "Google Sans Medium", sans-serif;
+    --font-google-bl: "Google Sans Black", sans-serif;
 
     /* Breakpoints */
     --breakpoint-sm: 375px;
