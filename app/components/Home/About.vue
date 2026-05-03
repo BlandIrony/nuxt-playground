@@ -44,20 +44,28 @@ onMounted(() => {
         },
     );
 
+    gsap.set(splitLines.lines, { transformOrigin: "top left" });
+
     gsap.fromTo(
         splitLines.lines,
         {
             yPercent: 110,
+            xPercent: 20,
+            rotate: 15,
+            opacity: 0,
 
         },
         {
             yPercent: 0,
+            xPercent: 0,
+            opacity: 1,
+            rotate: 0,
             duration: 1.5,
             stagger: 0.06,
             ease: "power4.inOut",
             scrollTrigger: {
                 trigger: ".about__text",
-                start: "top 90%",
+                start: "top 95%",
                 end: "bottom 40%",
                 scrub: 1,
             },
@@ -71,37 +79,37 @@ onMounted(() => {
         <!-- <span class="inline-block text-[1.25rem] font-google-m">
             Curious?
         </span> -->
-        <div class="h-full w-[80%] py-[3rem] text-center mx-auto">
-            <p class="about__text uppercase text-[11rem] tracking-tighter leading-[90%] font-google-bl">
-                And so we never <br>
+        <div class="h-full w-[80%] py-[3rem] text-center mx-auto perspective-midrange">
+            <p class="about__text  text-[11rem] tracking-tighter leading-[90%] font-google-bl">
+                ...and so we never <br>
                 named the mystery, <br>
                 and it remained <br>
                 whole.
             </p>
         </div>
 
-        <div class="about__image absolute top-30 left-20 h-[18rem] w-[28rem]">
+        <div class="about__image absolute top-30 left-20 h-[18rem] w-[28rem] transform-3d">
             <img
                 src="/images/mask-1.jpg"
                 alt=""
                 class="h-full w-full object-cover mix-blend-overlay"
             >
         </div>
-        <div class="about__image absolute top-55 right-20 h-[18rem] w-[28rem]">
+        <div class="about__image absolute top-55 right-20 h-[18rem] w-[28rem] transform-3d">
             <img
                 src="/images/mask-7.jpg"
                 alt=""
                 class="h-full w-full object-cover rounded-[inherit] mix-blend-overlay"
             >
         </div>
-        <div class="about__image absolute top-[40rem] left-20 h-[18rem] w-[28rem]">
+        <div class="about__image absolute top-[40rem] left-20 h-[18rem] w-[28rem] transform-3d">
             <img
                 src="/images/mask-22.jpg"
                 alt=""
                 class="h-full w-full object-cover object-top rounded-[inherit] mix-blend-overlay"
             >
         </div>
-        <div class="about__image absolute top-[50rem] right-20 h-[18rem] w-[28rem]">
+        <div class="about__image absolute top-[50rem] right-20 h-[18rem] w-[28rem] transform-3d">
             <img
                 src="/images/mask-16.jpg"
                 alt=""
