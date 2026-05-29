@@ -56,7 +56,7 @@ onMounted(() => {
         stagger: 0.06,
         scrollTrigger: {
             trigger: ".reveal__text",
-            start: "top 50%",
+            start: "top 10%",
             end: "bottom 80%",
             scrub: 1,
             // markers: true,
@@ -86,7 +86,7 @@ onMounted(() => {
                     </p>
                 </div>
 
-                <div class="reveal__text py-[15rem]">
+                <div class="reveal__text h-svh w-full flex items-center justify-center">
                     <p class="text-[3rem] font-google-m leading-[3rem] tracking-tight text-center">
                         But, there's a mindless chaos that ensues <br>
                         to fill the vaccuum left by silence. <br>

@@ -18,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="cards__section h-screen w-full">
+    <section class="cards__section h-[125svh] w-full">
         <div class="cards relative isolate h-full w-full perspective-distant">
             <div class="card absolute top-0 left-0 z-4 h-full w-full p-[1rem] origin-bottom transform-3d bg-amber-200">
                 <div class="h-full w-full flex flex-col justify-between">

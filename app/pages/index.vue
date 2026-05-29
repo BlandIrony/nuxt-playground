@@ -7,7 +7,8 @@
         <HomeHero />
         <HomeAbout />
         <HomeReveal />
-        <HomeStack />
+        <HomeTextArc />
+        <!-- <HomeStack /> -->
     </div>
 </template>
 
