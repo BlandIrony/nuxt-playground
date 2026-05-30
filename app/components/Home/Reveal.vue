@@ -57,7 +57,7 @@ onMounted(() => {
         scrollTrigger: {
             trigger: ".reveal__text",
             start: "top 10%",
-            end: "bottom 80%",
+            end: "bottom bottom",
             scrub: 1,
             // markers: true,
 
