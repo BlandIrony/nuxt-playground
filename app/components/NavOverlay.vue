@@ -19,6 +19,7 @@ const overlayTl = ref<gsap.core.Timeline | null>(null);
 
 onMounted(() => {
     const firstLink = document?.querySelectorAll(".nav__link")[0] as HTMLElement;
+    const isHovering = ref(false);
 
     SplitText.create([".nav__link", ".contact__link", ".contact__links__header", ".caption"], { type: "lines", linesClass: "line", mask: "lines" });
 
@@ -141,6 +142,8 @@ onMounted(() => {
         const actualLink = el.querySelector("a");
         const indicator = document.querySelector(".indicator");
 
+        isHovering.value = true;
+
         if (el !== firstLink) {
             gsap.to(
                 firstLink,
@@ -174,6 +177,7 @@ onMounted(() => {
     }
 
     function mouseLeave(el: HTMLElement) {
+        isHovering.value = false;
         // gsap.killTweensOf('.indicator');
         // gsap.set('.indicator', {
         //     rotate: 0,
@@ -209,13 +213,17 @@ onMounted(() => {
 
     linkRefs.value?.forEach((el: HTMLElement) => {
         el.addEventListener("mouseenter", () => {
-            mouseEnter(el);
+            if (!isHovering.value) {
+                mouseEnter(el);
+            }
         });
     });
 
     linkRefs.value?.forEach((el: HTMLElement) => {
         el.addEventListener("mouseleave", () => {
-            mouseLeave(el);
+            if (isHovering.value) {
+                mouseLeave(el);
+            }
         });
     });
 });
@@ -232,7 +240,7 @@ watch(() => store.isOpen, (newVal) => {
 
 <template>
     <div
-        class="overlay__wrapper fixed inset-0 z-14 bg-col-black/90 backdrop-blur-2xl px-[6rem] py-[10rem] text-col-white"
+        class="overlay__wrapper fixed inset-0 z-14 bg-black/90 backdrop-blur-2xl px-[6rem] py-[10rem] text-col-white"
         style="clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
     >
         <div class="flex gap-[4rem]">
@@ -257,6 +265,7 @@ watch(() => store.isOpen, (newVal) => {
                                 // transform: route.path === link.href ? 'translateX(64px)' : 'none',
                             }"
                             class="font-google-m text-[5rem] leading-[5rem] tracking-tighter hover:text-col-orange!"
+                            @click="store.isOpened"
                         >
                             {{ link.title }}
                         </NuxtLink>

@@ -1,4 +1,4 @@
-const links = [
+export const links = [
     {
         title: "Github",
         link: "/",
@@ -13,7 +13,7 @@ const links = [
     },
 ];
 
-const navLinks = [
+export const navLinks = [
     {
         title: "Home",
         href: "/",
@@ -40,7 +40,30 @@ const navLinks = [
     },
 ];
 
-export {
-    links,
-    navLinks,
-};
+export const showcaseItems = [
+    {
+        title: "Underworld",
+        imageUrl: "/images/mask-3.jpg",
+        link: "/",
+    },
+    {
+        title: "Ethereal",
+        imageUrl: "/images/mask-6.jpg",
+        link: "/",
+    },
+    {
+        title: "Unfazed",
+        imageUrl: "/images/mask-12.jpg",
+        link: "/",
+    },
+    {
+        title: "Secrets",
+        imageUrl: "/images/mask-14.jpg",
+        link: "/",
+    },
+    {
+        title: "Withered Beans",
+        imageUrl: "/images/mask-20.jpg",
+        link: "/",
+    },
+];
