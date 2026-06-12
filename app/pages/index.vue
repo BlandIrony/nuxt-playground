@@ -7,7 +7,8 @@
         <HomeHero />
         <HomeAbout />
         <HomeReveal />
-        <HomeShowcase />
+        <!-- <HomeShowcase /> -->
+        <HomeImageTrail />
         <!-- <HomeTextArc /> -->
     </div>
 </template>

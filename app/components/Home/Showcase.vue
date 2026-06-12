@@ -11,14 +11,20 @@ const showcaseItemRef = useTemplateRef("showcaseItem");
 
 onMounted(() => {
     function arrangeItems() {
-        showcaseItemRef.value?.forEach((item, i) => {
-            gsap.set(
-                item,
-                {
-                    rotateX: i * 20,
-                },
-            );
-        });
+        const itemHeight = document.querySelector(".project")?.clientHeight;
+        // console.log(itemHeight)
+        if (Array.isArray(showcaseItemRef.value)) {
+            showcaseItemRef.value.forEach((item, i) => {
+                gsap.set(
+                    item,
+                    {
+                        rotateX: 30,
+                        y: (45 + itemHeight) * i,
+                        z: -i * 100,
+                    },
+                );
+            });
+        }
     }
 
     arrangeItems();
@@ -35,16 +41,18 @@ onMounted(() => {
             </span>
         </div>
 
-        <div class="flex justify-center pt-[16rem] perspective-distant">
-            <div class="space-y-[2rem]">
+        <div class="flex justify-center ">
+            <div class="space-y-[2rem] perspective-distant preserve-3d">
                 <NuxtLink
                     v-for="(item, index) in showcaseItems"
                     :key="index"
-                    ref="showcaseItem"
                     to="/"
-                    class="relative block w-[60rem] h-[32rem] will-change-transform origin-bottom"
+                    class="project absolute top-1/2 left-1/2 -translate-1/2 w-[60rem] h-[32rem] will-change-transform origin-bottom-center"
                 >
-                    <div class="h-full w-full">
+                    <div
+                        ref="showcaseItem"
+                        class="absolute inset-0 block h-full w-full"
+                    >
                         <img
                             :src="item.imageUrl"
                             :alt="item.title"

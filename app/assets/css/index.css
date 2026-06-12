@@ -101,3 +101,15 @@ body {
 button {
     cursor: pointer;
 }
+
+.trail__image {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transform-origin: center;
+    pointer-events: none;
+    will-change: transform;
+}
