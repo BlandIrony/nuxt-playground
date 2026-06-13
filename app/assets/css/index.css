@@ -112,4 +112,5 @@ button {
     transform-origin: center;
     pointer-events: none;
     will-change: transform;
+    z-index: 2;
 }

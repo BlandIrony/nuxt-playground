@@ -106,6 +106,7 @@ onMounted(() => {
 
 <template>
     <section class="relative h-screen w-full pt-[7rem] px-[1rem]">
+        <!-- <span class="inline-block absolute top-[50px] h-4 w-4 bg-col-black"></span> -->
         <div class="h-full w-full ">
             <div class="flex justify-between">
                 <h1 class="hero__text text-[5rem] tracking-tighter leading-[5rem] uppercase">

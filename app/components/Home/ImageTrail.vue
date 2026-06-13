@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import gsap from "gsap";
 import { onMounted } from "vue";
 
 type TrailConfig = {
@@ -26,8 +27,58 @@ declare global {
     };
 }
 
+const words: string[] = ["Quirky", "whimsical", "Curious", "Offbeat", "Mysterious"];
+
 onMounted(() => {
     const container = document.querySelector<HTMLElement>(".trail__container");
+    const dynamicTextContainer = document.querySelector(".dynamic__text__container");
+    const gap = 4;
+
+    function injectText() {
+        for (let i = 0; i < words.length; i++) {
+            const textField = document.createElement("p");
+            textField.classList.add("dynamic__text");
+            textField.innerHTML = words[i];
+
+            dynamicTextContainer?.appendChild(textField);
+        }
+    }
+
+    injectText();
+
+    function animateTextBlock() {
+        const dynamicTexts = document.querySelectorAll(".dynamic__text");
+        const textHeight = dynamicTexts[0]?.clientHeight;
+
+        if (!textHeight)
+            return;
+
+        gsap.to(".dynamic__text__container", {
+            y: -(textHeight + gap),
+            duration: 1.5,
+            ease: "elastic.out(1, 0.3)",
+
+            onComplete() {
+                const firstText = document.querySelector(".dynamic__text");
+
+                if (firstText) {
+                    firstText.parentElement?.appendChild(firstText);
+                }
+
+                gsap.set(".dynamic__text__container", {
+                    y: 0,
+                });
+
+                gsap.delayedCall(1.5, animateTextBlock);
+            },
+        });
+    }
+
+    animateTextBlock();
+
+    // setInterval(() => {
+    //     animateTextBlock();
+    // }, 1500);
 
     const config: TrailConfig = {
         imageCount: 23,
@@ -201,17 +252,33 @@ onMounted(() => {
 </script>
 
 <template>
-    <section class="trail__container h-dvh w-full relative">
+    <section class="trail__container h-dvh w-full relative bg-col-black overflow-hidden">
         <div class="h-full w-full flex justify-center items-center">
-            <h3 class="text-[10rem] leading-[10rem] tracking-tighter font-google-bl uppercase">
-                <span class="inline-block">
-                    Be
-                </span>
-                {{ " " }}
-                <span class="inline-block dynamic__text">
-                    Quirky
-                </span>
-            </h3>
+            <div class="flex items-center gap-8">
+                <div class="">
+                    <p class="-mt-4 text-[9rem] leading-[9rem] text-col-white font-gloock uppercase">
+                        Stay
+                    </p>
+                </div>
+                <div class="relative h-[29rem] overflow-hidden">
+                    <div class="dynamic__text__container flex flex-col gap-y-[.5rem]  text-[9rem] leading-[9rem] font-gloock text-col-white uppercase">
+                        <!-- <p class="inline-block dynamic__text">
+                            Quirky
+                        </p>
+                        <p class="inline-block dynamic__text">
+                            Whimsical
+                        </p>
+                        <p class="inline-block dynamic__text">
+                            Offbeat
+                        </p>
+                        <p class="inline-block dynamic__text">
+                            Mysterious
+                        </p> -->
+                    </div>
+
+                    <div class="absolute top-0 left-0 z-[1] h-full w-full bg-[linear-gradient(180deg,var(--color-col-black)_5%,transparent_38%,#0000_62%,var(--color-col-black)_95%)]" />
+                </div>
+            </div>
         </div>
     </section>
 </template>
