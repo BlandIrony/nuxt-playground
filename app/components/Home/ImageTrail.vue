@@ -55,7 +55,7 @@ onMounted(() => {
 
         gsap.to(".dynamic__text__container", {
             y: -(textHeight + gap),
-            duration: 1.5,
+            duration: 1,
             ease: "elastic.out(1, 0.3)",
 
             onComplete() {
