@@ -69,7 +69,7 @@ onMounted(() => {
                     y: 0,
                 });
 
-                gsap.delayedCall(1.5, animateTextBlock);
+                gsap.delayedCall(1, animateTextBlock);
             },
         });
     }
