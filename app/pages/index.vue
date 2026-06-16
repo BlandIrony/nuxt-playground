@@ -9,6 +9,7 @@
         <HomeReveal />
         <!-- <HomeShowcase /> -->
         <HomeImageTrail />
+        <HomeLinearShowcase />
         <!-- <HomeTextArc /> -->
     </div>
 </template>
